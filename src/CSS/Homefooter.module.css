@@ -1,0 +1,16 @@
+.a:hover{
+    text-decoration: underline;
+    color: rgb(240, 240, 240) ;
+}
+.a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #c7c7c8;
+    /* margin: 8px 0;
+    font-size: 1rem;
+    font-weight: 400; */
+}
+.fontsize{
+    font-weight: 700;
+   
+  }
