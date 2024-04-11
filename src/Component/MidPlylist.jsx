@@ -19,10 +19,10 @@ export default function MidPlylist({items}) {
     <Container className={`mt-2 ${style.scroll}`}  >
     <div>
         <Row>
-            <Col xs={11}>
+            <Col xs={12} sm={8}>
             <a href="/" className='text-decoration-none text-white'><h4>Spotify Playlist</h4></a>
             </Col>
-            <Col xs={1} className={`${style.list}`}>
+            <Col xs={12} sm={4} className={`${style.list} text-end`}>
              <a href="/" className='text-decoration-none text-white'> <p className={`${style.text}`}>Show all</p></a>
             </Col>
         </Row>

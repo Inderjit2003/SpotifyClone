@@ -18,7 +18,7 @@ export default function Bottom() {
         </Col>
         <Col xs={2}  className="d-flex justify-content-center">
         <div className={` ${Style.list}`}>
-        <Button href='/Login' variant='light' className={`me-4 rounded-pill my-2 p-2 px-4 py-2 fw-bold ${Style.button}`} >Signup</Button>
+        <Button href='/Signup' variant='light' className={`me-4 rounded-pill my-2 p-2 px-4 py-2 fw-bold ${Style.button}`} >Signup</Button>
 
           </div>
         </Col>
