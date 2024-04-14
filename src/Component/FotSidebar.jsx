@@ -11,28 +11,28 @@ export default function FotSidebar() {
             <div style={{margin:'32px 0',padding:'0 24px' , textAlign:'start'}}>
             <div style={{display:'flex' , flexWrap:'wrap'}} > 
                     <div style={{marginRight:'2vh', marginBottom:'2px'}}>
-                      <a href='' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}} className=''>
+                      <a href='https://www.spotify.com/in-en/legal/end-user-agreement/' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}} className=''>
                         <span style={{ fontSize: '0.6875rem', fontWeight:' 400' }}>Legal</span>
                        </a>
                     </div>
-                    <div style={{marginRight:'3vh'}}><a href='' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}} >
+                    <div style={{marginRight:'3vh'}}><a href='https://www.spotify.com/in-en/safetyandprivacy/reporting-content' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}} >
                     <span>Safety & Privacy Center</span>
                     </a></div>
-                    <div style={{marginRight:'2vh'}}><a href='' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}} >
+                    <div style={{marginRight:'2vh'}}><a href='https://www.spotify.com/in-en/legal/privacy-policy/' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}} >
                     <span>PrivacyPolicy</span>
                     </a></div>
-                    <div style={{marginRight:'3vh'}}><a href='' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}} >
+                    <div style={{marginRight:'3vh'}}><a href='https://www.spotify.com/in-en/legal/cookies-policy/' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}} >
                     <span>Cookies</span>
                     </a></div>
-                    <div style={{marginRight:'4vh'}}> <a href='' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}} >
+                    <div style={{marginRight:'4vh'}}> <a href='https://www.spotify.com/in-en/legal/privacy-policy/#s3' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}} >
                     <span>About_Ads</span>
                     </a></div>
-                    <div style={{marginRight:'3vh'}}><a href='' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}} >
+                    <div style={{marginRight:'3vh'}}><a href='https://www.spotify.com/in-en/accessibility' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}} >
                     <span>Accessibility</span>
                     </a></div>
                     </div>
                     <div style={{ marginLeft:'1vh', marginTop:'1vh'}}>
-                    <a href='' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}}>
+                    <a href='https://www.spotify.com/in-en/legal/cookies-policy/' style={{textDecoration:'none' ,fontSize:'10px',color:'#c7c7c8'}}>
                     <span>Cookies</span>
                     </a></div>
 

@@ -13,22 +13,22 @@ export default function HomeFooter() {
              <Row>
                 <Col xs={2} className='mx-4'>
                     <h5 style={{color:'white', fontWeight:'700'}} >Company</h5>
-                    <a href="" className={style.a}> <p>About</p></a>
-                    <a href="" className={style.a}><p>Jobs</p></a>
-                    <a href="" className={style.a}><p>For the Record</p></a>
+                    <a href="https://www.spotify.com/in-en/about-us/contact/" className={style.a}> <p>About</p></a>
+                    <a href="https://www.lifeatspotify.com/" className={style.a}><p>Jobs</p></a>
+                    <a href="https://newsroom.spotify.com/" className={style.a}><p>For the Record</p></a>
                 </Col>
                 <Col xs={2} >
                     <h5 style={{color:'white', fontWeight:'700'}}>Communities</h5>
-                    <a href=""  className={style.a}> <p >For Artist </p></a>
-                    <a href=""  className={style.a}><p>Developers</p></a>
-                    <a href=""  className={style.a}><p>Advertising</p></a>
-                    <a href=""  className={style.a} ><p>Investors</p></a>
-                    <a href=""  className={style.a}><p>Vendors</p></a>
+                    <a href="https://artists.spotify.com/home"  className={style.a}> <p >For Artist </p></a>
+                    <a href="https://developer.spotify.com/"  className={style.a}><p>Developers</p></a>
+                    <a href="https://ads.spotify.com/en-IN/"  className={style.a}><p>Advertising</p></a>
+                    <a href="https://investors.spotify.com/home/default.aspx"  className={style.a} ><p>Investors</p></a>
+                    <a href="https://spotifyforvendors.com/"  className={style.a}><p>Vendors</p></a>
                 </Col>
                 <Col xs={4} >
                     <h5 style={{color:'white', fontWeight:'700'}} >Useful Links</h5>
-                    <a href=""  className={style.a}> <p>Support</p></a>
-                    <a  href=""  className={style.a}><p>Free Mobile App</p></a>
+                    <a href="https://support.spotify.com/in-en/"  className={style.a}> <p>Support</p></a>
+                    <a  href="https://www.spotify.com/in-en/download/windows/"  className={style.a}><p>Free Mobile App</p></a>
                 </Col>
              <Col xs={3}>
 

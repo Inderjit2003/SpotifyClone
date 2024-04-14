@@ -6,7 +6,7 @@ import Style from '../CSS/Home.module.css'
 
 export default function MidSidebar() {
   const popover = (
-    <Toast delay={3000} className={`ms-5 `} style={{background:'#0080ff',color:'white',width:'20rem'}}  autohide>     
+    <Toast delay={3000} className={`ms-5 ${Style.toastcard} `} style={{background:'#0080ff',color:'white',width:'20rem'}}  autohide>     
            <Toast.Body color='white'>
              <h6>Create playlist</h6>
              <p>Log in to create and share playlists.</p>
@@ -17,7 +17,7 @@ export default function MidSidebar() {
              </Toast.Body>
      </Toast> );
    const podcast = (
-     <Toast delay={3000} className={`ms-5 `} style={{background:'#0080ff',color:'white',width:'20rem'}}  autohide>     
+     <Toast delay={3000} className={`ms-5 ${Style.toastcard} `} style={{background:'#0080ff',color:'white',width:'20rem'}}  autohide>     
             <Toast.Body color='white'>
               <h6>Podcast</h6>
               <p>Log in to browse and share podcasts.</p>

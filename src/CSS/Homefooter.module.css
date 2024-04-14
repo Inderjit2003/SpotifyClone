@@ -14,3 +14,17 @@
     font-weight: 700;
    
   }
+  .navA{
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+
+  }
+  .navA:hover{
+    text-decoration: none;
+
+  }
+  .button:hover{
+    transform:scale(1.05); /*increase 5 percent*/
+  }
+
