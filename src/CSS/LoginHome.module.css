@@ -1,0 +1,25 @@
+.searcdiv{
+    padding: 12px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    
+  }
+  .searchspan{
+    max-width: 100%;
+    overflow-wrap: break-word;
+    position: absolute;
+    font-weight: 700;
+  }
+  .searchimg{
+    /* -webkit-transform: rotate(35deg) translate(18%,-2%);
+     transform: rotate(50deg) translate(18%,-2% );
+     box-shadow: 0 2px 4px 0 rgba(0,0,0.2); */
+     height: 70px;
+     
+     transform: rotate(25deg);
+     margin-top: 40px;
+     margin-left: 80px;
+    }

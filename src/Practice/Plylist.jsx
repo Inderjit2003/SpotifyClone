@@ -60,6 +60,57 @@ const artists=[
   desc:'Artist'
 }
 ]
+
+const radio=[{
+  img:'https://seeded-session-images.scdn.co/v2/img/122/secondary/artist/4YRxDV8wJFPHPTeXepOstw/en-GB',
+  name:'Arijit Singh Radio',
+  desc:'With Nwha Kakkar, Pritam, KK and more'
+},
+{
+  img:'https://seeded-session-images.scdn.co/v2/img/122/secondary/artist/2FKWNmZWDBZR4dE5KX4plR/en-GB',
+  name:'Diljit dosanjh Radio',
+  desc:'With Garry Sandhu, Ranjit Bawa, Amrinder Gill and more'
+},
+{
+  img:'https://seeded-session-images.scdn.co/v2/img/122/secondary/artist/4K6blSRoklNdpw4mzLxwfn/en-GB',
+  name:'Kumar Sanu Radio',
+  desc:'With Udit Narayan, Alka Yagnik, Anuradha Paudwal and more'
+},
+{
+  img:'https://seeded-session-images.scdn.co/v2/img/122/secondary/artist/4PULA4EFzYTrxYvOVlwpiQ/en-GB',
+  name:'Sidhu Moose Wala Radio',
+  desc:'With Ammy Virk, Amrit Maan, Karan Aujla and more'
+},
+{
+  img:'https://seeded-session-images.scdn.co/v2/img/122/secondary/artist/4fEkbug6kZzzJ8eYX6Kbbp/en-GB',
+  name:'KK Radio',
+  desc:'With Mohit chauhan, Ankit Tiwari, Javed Ali and more'
+},
+{
+  img:'https://seeded-session-images.scdn.co/v2/img/122/secondary/artist/5r3wPya2PpeTTsXsGhQU8O/en-GB',
+  name:'Shubh Radio',
+  desc:'With AP Dhillon, Gurinder Gill, Ikky and more'
+} ,
+{
+  img:'https://seeded-session-images.scdn.co/v2/img/122/secondary/artist/4K6blSRoklNdpw4mzLxwfn/en-GB',
+  name:'Kumar Sanu Radio',
+  desc:'With Udit Narayan, Alka Yagnik, Anuradha Paudwal and more'
+},
+{
+  img:'https://seeded-session-images.scdn.co/v2/img/122/secondary/artist/4PULA4EFzYTrxYvOVlwpiQ/en-GB',
+  name:'Sidhu Moose Wala Radio',
+  desc:'With Ammy Virk, Amrit Maan, Karan Aujla and more'
+},
+{
+  img:'https://seeded-session-images.scdn.co/v2/img/122/secondary/artist/4fEkbug6kZzzJ8eYX6Kbbp/en-GB',
+  name:'KK Radio',
+  desc:'With Mohit chauhan, Ankit Tiwari, Javed Ali and more'
+},
+{
+  img:'https://seeded-session-images.scdn.co/v2/img/122/secondary/artist/5r3wPya2PpeTTsXsGhQU8O/en-GB',
+  name:'Shubh Radio',
+  desc:'With AP Dhillon, Gurinder Gill, Ikky and more'
+}    ]
 export default function Plylist() {
 
   
@@ -70,7 +121,7 @@ export default function Plylist() {
     
     <div>
       {/* <MidPlylist artist={artists} album={album} radio={radio} playlist={playlist} /> */}
-      <Showall artist={artists} />
+      <Showall artist={artists}  radio={radio}/>
     </div>
     </Card>
     </div>

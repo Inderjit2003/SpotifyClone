@@ -121,11 +121,11 @@ export default function MidPlylist({ artist , album , radio , playlist}) {
             color:'white',
             title:'Playlist',
             html:'Log in to play playlists.',
-            timer:1500,
-            width: 600,
+            // timer:1500,
+            width: 800,
+            height: 800,
             padding: "3em",
-            backdrop: `
-            rgba(0,0,123,0.4)`,
+            // backdrop: `rgba(0,0,123,0.4)`,
             // url("https://www.bing.com/images/search?view=detailV2&ccid=hn0n4KUL&id=77A01EB72807AC58DDD8EF45D402499701D350E6&thid=OIP.hn0n4KULVRro0fSsx5Q_RgHaDg&mediaurl=https%3a%2f%2fclassroomclipart.com%2fimages%2fgallery%2fAnimations%2fMusic%2fmusical-notes-animation.gif&exph=261&expw=550&q=Music+Notes+Animation&simid=608029239386076945&FORM=IRPRST&ck=F675F2E4BE8BEEBDB6278A0755E5F876&selectedIndex=1&itb=0&ajaxhist=0&ajaxserp=0")
             // left top
             // no-repeat`,   
