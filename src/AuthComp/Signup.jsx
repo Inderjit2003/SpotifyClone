@@ -104,7 +104,7 @@ export default function Signup() {
                     ><FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
                     </button>
                   </div>
-                  <p>{formErrors.password}</p>
+                  <p style={{width:'55vh'}}>{formErrors.password}</p>
                 </div>
           </div>
           <div className={`${Style.loginform}`}>

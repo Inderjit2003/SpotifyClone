@@ -1,38 +1,16 @@
-import React, {useState} from 'react'
-import Container from 'react-bootstrap/Container';
+import React from 'react'
+import { Button, Card, Container } from 'react-bootstrap'
+import Style from '../CSS/Home.module.css'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Button, Col, Row } from 'react-bootstrap';
 import img1 from '../assets/1.png';
-import { Dropdown } from 'react-bootstrap';
 import style from '../CSS/Homefooter.module.css'
-import Style from '../CSS/Home.module.css'
+import HomeFooter from './HomeFooter';
 
-export default function PlylistNavbar({handleBellIconClick ,handleInstallClick}) {
-    // State to manage dropdown visibility
-  //   const [showDropdown, setShowDropdown] = useState(false);
-  //    // Function to handle button click
-  // const handleButtonClick = () => {
-  //   console.log('Button clicked'); // Check if the button click is detected
-  //   setShowDropdown(!showDropdown); // Toggle dropdown visibility
-  // };
-
-  // const handleMenuItemClick = () => {
-  //   // Handle menu item click actions here
-  //   setShowDropdown(false); // Close the dropdown after clicking a menu item
-  // };
-  
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  const handleButtonClick = () => {
-    setShowDropdown(!showDropdown);
-  };
-
-  const handleMenuItemClick = () => {
-    setShowDropdown(false);
-    // Handle menu item click actions here
-  };
+export default function InstallApp({handleBellIconClick}) {
   return (
+    <div className='mx-1 py-2'>
+    <Card  style={{backgroundColor:'#121212',border:'none'}}>
     <div className='mx-1 '>    
     <Navbar  sticky='top' expand="lg" >
       <Container className='mt-1'>
@@ -51,14 +29,14 @@ export default function PlylistNavbar({handleBellIconClick ,handleInstallClick})
          <Nav className="me-auto">
          </Nav>
          <Nav>
-           <div className='m-4'>
+           <div className='mt-4 mx-4 mb-2'>
         <Button variant="light" className={`mx-1 btn-sm px-3 ${style.button}`} style={{borderRadius:'25px'}}  >
-          <a className={style.navA} style={{color:'black'}} >
+          <a href='https://open.spotify.com/premium' className={style.navA} style={{color:'black'}} >
           Explore Premium
           </a>
         
         </Button>
-        <Button onClick={handleInstallClick} className={`mx-1 btn-sm px-3 ${style.button}`}  style={{borderRadius:'25px', backgroundColor:'black', borderColor:'black'}}>
+        <Button  className={`mx-1 btn-sm px-3 ${style.button}`}  style={{borderRadius:'25px', backgroundColor:'black', borderColor:'black'}}>
           <a  className={style.navA} style={{color:'white'}}>
             <span>
                 <svg data-encore-id="icon" role="img"
@@ -81,50 +59,45 @@ export default function PlylistNavbar({handleBellIconClick ,handleInstallClick})
   <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
 </svg>
         </Button>
- {/* Button to toggle dropdown */}
- <Button
-            variant="dark"
-            style={{ borderRadius: '100px', paddingBottom: '6px', backgroundColor: 'black', borderColor: 'black' }}
-            className="mx-1 btn-sm p-1"
-            onClick={handleButtonClick}
-          >
-            <img src={img1} height={'24px'} width={'24px'} style={{ borderRadius: '100px' }} alt="Profile" />
-          </Button>
-          {/* Dropdown menu */}
-          {showDropdown && (
-            <div className="dropdown-menu show" style={{ position: 'absolute', right: '0', zIndex: '1', backgroundColor:'' }}>
-              <Button  className={`dropdown-item ${style.dropdownItem}`} onClick={handleMenuItemClick}>
-              
-                Profile
-              </Button>
-              <Button  className={`dropdown-item ${style.dropdownItem}`} onClick={handleMenuItemClick}>
-                Settings
-              </Button>
-              <div className="dropdown-divider"></div>
-              <Button className={`dropdown-item ${style.dropdownItem}`} onClick={handleMenuItemClick}>
-                <a href='/'>
-                Logout
-                </a>
-               
-              </Button>
-            </div>
-          )}
-          </div>
+        <Button variant="dark" style={{borderRadius:"100px", paddingBottom:'6px', backgroundColor:'black', borderColor:'black'}} className='mx-1 btn-sm p-1'>
+          <img src={img1} height={'24px'} width={'24px'} style={{borderRadius:"100px"}}/>
+        </Button>
+
+        </div>
          </Nav>
        </Navbar.Collapse>
       
       </Container>
      
 </Navbar>
- 
-<Row className='mx-2 mb-2'>
-          <Col>
-          <Button variant="light"  className='mx-1 btn-sm' style={{borderRadius:'25px'}}>All</Button>
-          <Button variant="dark" className='mx-1 btn-sm' style={{borderRadius:'25px'}}>Music</Button>
-          <Button variant="dark" className='mx-1 btn-sm' style={{borderRadius:'25px'}}>Podcasts</Button>
-          </Col>
-        </Row>
 </div>
+ 
+
+
+    <div className={Style.scrollInstallApp}
+     style={{ backgroundImage: 'linear-gradient(to top , #121212 , rgba(37, 33, 33, 0.693)  )'}}>
+        
+           <Card className={`border-0 mt-4 `} style={{height:'90vh', marginBottom:'-10vh',marginLeft:'32vh', width:'90vh',backgroundColor:'transparent' }}>
+            <Card.Img  src={'https://open.spotifycdn.com/cdn/images/devices/mac.3fbeb8c6.png'} />
+            <h3 style={{fontWeight:'700', color:'white'}}>
+            Seamlessly listen to music you love. Download the Spotify app for your computer.
+            </h3>
+            <Button className='mt-4 ' 
+             style={{ backgroundColor: '#1ed760', borderColor: '#1ed760',
+              height:'8vh', width:'30vh',
+               borderRadius:'30vh',
+               marginLeft:'30vh'}}>
+                <a href='https://download.scdn.co/SpotifySetup.exe' className={style.install}>
+                Get our free App
+                </a>
+                
+            </Button>
+           </Card>
+           <HomeFooter />
+           </div>
+</Card>
+</div>
+
 
   )
 }

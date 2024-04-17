@@ -1,10 +1,9 @@
-import React, {useState} from 'react'
-import { Card } from 'react-bootstrap'
-import PlylistNavbar from './PlylistNavbar'
-import MidPlylist from './MidPlylist';
+import React, {useState} from 'react';
+import { Card } from 'react-bootstrap';
+import PlylistNavbar from './PlylistNavbar';
 import Showall from './Showall';
-import AllCards from './AllCards';
 
+export default function Plylist() {
 
 // artists items
 const artists=[
@@ -111,19 +110,29 @@ const radio=[{
   name:'Shubh Radio',
   desc:'With AP Dhillon, Gurinder Gill, Ikky and more'
 }    ]
-export default function Plylist() {
 
-  
+
+// export default function Plylist() {
+//   const navclick = () => {
+//     window.alert("Button Clicked");
+//   };
+const [cmpname, setcmpname] = useState('cmp1');
+
+  const handleNavClick = (newCmpName) => {
+    setcmpname(newCmpName);
+  };
+
+  // const [cmpname, setcmpname] = useState('cmp1');
+
   return (
     <div className='mx-1 py-2'>
-    <Card  style={{backgroundColor:'#121212',border:'none'}}>
-      <PlylistNavbar />
-    
-    <div>
-      {/* <MidPlylist artist={artists} album={album} radio={radio} playlist={playlist} /> */}
-      <Showall artist={artists}  radio={radio}/>
+      <Card style={{ backgroundColor: '#121212', border: 'none' }}>
+        <PlylistNavbar handleNavClick={handleNavClick} />
+        <div>
+          {cmpname === "cmp1" && <Showall artist={artists} radio={radio} />}
+        </div>
+      </Card>
     </div>
-    </Card>
-    </div>
-  )
+  );
+
 }

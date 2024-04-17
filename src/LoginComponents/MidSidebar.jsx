@@ -8,8 +8,8 @@ export default function MidSidebar() {
   return (
     <div>
       <Row>
-        <Col xs={6}  className={`my-3 mx-4` }>
-           <a href="/" className={`text-decoration-none text-white ${Style.icon}`}> 
+        <Col xs={8}  className={`my-3 mx-4` }>
+           <a href="/home" className={`text-decoration-none text-white ${Style.icon}`}> 
              <svg  data-encore-id="icon" className={Style.icon} width="26" height="26" fill='white'
                       role="img" aria-hidden="true" viewBox="0 0 24 24"
                       class="Svg-sc-ytk21e-0 bneLcE">
@@ -19,14 +19,14 @@ export default function MidSidebar() {
                        <span   className={`ms-3 `} class="Svg-sc-ytk21e-0 ms-3 bneLcE"  style={{fontSize:'17px'}}>Your Library</span>
              </a>
         </Col>
-        <Col xs={2}  className={`${Style.list}`} style={{marginTop:'14px'}}>
+        {/* <Col xs={2}  className={`${Style.list}`} style={{marginTop:'14px'}}>
              <Button variant="none" style={{marginLeft:'5vh'}} size="sm">
              <svg data-encore-id="icon" className={Style.icon} width="16" height="16" fill='white'  role="img" aria-hidden="true" viewBox="0 0 16 16" >
                    <path d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z"></path></svg>
  
              </Button>
      
-        </Col>
+        </Col> */}
        <Col xs={2} className={`mt-2 ${Style.list}`} >
              <Button variant="none" size="sm" >
              <svg xmlns="http://www.w3.org/2000/svg"className={Style.icon} width="34" height="34" fill="white"  viewBox="0 0 16 16">
@@ -38,11 +38,11 @@ export default function MidSidebar() {
    <Row className='m-1'> 
        <Col>
        <Button variant="dark" size='sm' className='mx-1' style={{borderRadius:'25px',fontWeight:'500'}}>Playlists</Button>
-       <Button variant="dark" size='sm' className='mx-1' style={{borderRadius:'25px',fontWeight:'500'}}>Albums</Button>
+       {/* <Button variant="dark" size='sm' className='mx-1' style={{borderRadius:'25px',fontWeight:'500'}}>Albums</Button> */}
        </Col>
    </Row>
 
-  <Row>
+  {/* <Row>
       <Col xs={6}> 
       <Button style={{backgroundColor:'#121212',border:'none', borderRadius:'100px' , marginLeft:'8px'}} >
         
@@ -52,29 +52,8 @@ export default function MidSidebar() {
       </svg>
         </Button>
       </Col>
-      <Col xs={5}>
-      
-          
-          <DropdownButton style={{backgroundColor:'#121212' }} title={
-            <Button style={{backgroundColor:'#121212' , border:'none',color:' rgb(176, 176, 176)'}} >
-            <span  className='mt-2' style={{fontSize:'14px', paddingTop:'10px'}}>
-         Recents
-         </span>
-         <span style={{marginLeft:'4px', marginBottom:'4px'}}>
-         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
-         <path d="M15 14.5H5V13h10v1.5zm0-5.75H5v-1.5h10v1.5zM15 3H5V1.5h10V3zM3 3H1V1.5h2V3zm0 11.5H1V13h2v1.5zm0-5.75H1v-1.5h2v1.5z"></path>
-        </svg>
-        </span>
-      
-    
-        </Button>
-
-          } border="none">
-            <Dropdown.Item eventKey="1">Dropdown link</Dropdown.Item>
-            <Dropdown.Item eventKey="2">Dropdown link</Dropdown.Item>
-          </DropdownButton>
-      </Col>
-  </Row>
+     
+  </Row> */}
             
                 <div >
                 <div className={`  ${Style.yourlibrary}`}>

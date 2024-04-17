@@ -135,16 +135,20 @@ overflow: hidden;
   /* text-overflow: ellipsis */ 
 
 }
-.scrollStart{
-  overflow-y: scroll;
+.scrollStart {
+  overflow-y: auto; /* Changed to auto for vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
   height: 78vh;
-  }
-  .scrollStart::-webkit-scrollbar{
-  width: 12px;
-  }
-  .scrollStart::-webkit-scrollbar-thumb:hover{
-  background-color: rgba(104, 104, 104, 0.693); 
-  }
+}
+
+.scrollStart::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  height: 12px; /* Height of the scrollbar */
+}
+
+.scrollStart::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(104, 104, 104, 0.693); /* Background color of the scrollbar thumb */
+}
 
 .scroll{
 overflow-y: scroll;
@@ -156,6 +160,25 @@ width: 12px;
 .scroll::-webkit-scrollbar-thumb:hover{
 background-color: rgba(104, 104, 104, 0.693); 
 }
+
+
+.scrollInstallApp {
+  overflow-y: auto; /* Changed to auto for vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  height: 72vh;
+}
+
+.scrollInstallApp::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  height: 12px; /* Height of the scrollbar */
+}
+
+.scrollInstallApp::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(104, 104, 104, 0.693); /* Background color of the scrollbar thumb */
+}
+
+
+
 .bottom{
 position: fixed;
 bottom: 0;

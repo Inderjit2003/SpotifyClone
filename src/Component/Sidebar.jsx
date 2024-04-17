@@ -4,14 +4,14 @@ import UpSidebar from './UpSidebar'
 import MidSidebar from './MidSidebar'
 import FotSidebar from './FotSidebar'
 
-export default function Sidebar() {
+export default function Sidebar({handelclick}) {
   return (
     <>
        <div>
         <Stack gap={2}>
           <div className='Up'>
             <Card style={{backgroundColor:'#121212' , border:'none'}} className='ms-2 mt-2'>
-            <UpSidebar />
+            <UpSidebar handelclick={handelclick} />
             </Card>
           </div>
           <div className='mid'>
