@@ -59,13 +59,14 @@ const SearchHome = ({ items }) => {
   //   setFilteredItems(filtered);
   // };
 
-   // Filter through all items
-   const filtered = Object.values(items).flatMap(itemGroup =>
-    itemGroup.filter(item =>
-      item.name.toLowerCase().includes(query.toLowerCase())
-    )
-  );
-  setFilteredItems(filtered);
+  // Filter through all items
+    const filtered = Object.values(items).flatMap((itemGroup) =>
+      itemGroup.filter((item) =>
+        item.name.toLowerCase().includes(query.toLowerCase())
+      )
+    );
+    setFilteredItems(filtered);
+
 };
   return (
     <div className='mx-1 py-2'>
@@ -105,73 +106,93 @@ const SearchHome = ({ items }) => {
         </div>
 
         {/* ----------------------------------for playlist----------------------------------------- */}
-        <div  className={`mt-2 ${Style.scrollStart}`}>
-          <Row
-            className="justify-content-between align-items-center p-2"
-            style={{
-              backgroundImage: 'linear-gradient(to top , #121212 , rgba(37, 33, 33, 0.693)  )',
-            }} >
-            <Col xs={12} sm={8}>
-              <h5 style={{ fontWeight: '700', fontSize: '22px', color: 'white', width:"100%" }} className={` mx-4 my-4`}>
-                Browse all
-              </h5>
-            </Col>
-          </Row>
+        <div className={`mt-2 ${Style.scrollStart}`}>
+  <Row
+    className="justify-content-between align-items-center p-2"
+    style={{
+      backgroundImage: 'linear-gradient(to top , #121212 , rgba(37, 33, 33, 0.693)  )',
+    }} >
+    <Col xs={12} sm={8}>
+      <h5 style={{ fontWeight: '700', fontSize: '22px', color: 'white', width: "100%" }} className={` mx-4 my-4`}>
+        Browse all
+      </h5>
+    </Col>
+  </Row>
 
-          <Row xs={1} md={2} lg={6} xl={6} className="g-0">
-  {filteredItems && filteredItems.length > 0 ? (
-    filteredItems.map((item, index) => (
-      <div>
+  <Row xs={1} md={2} lg={6} xl={6} className="g-0">
+    {/* Render random cards */}
+    {Array.from({ length: 3 }, (_, index) => (
       <Col key={index} className='mx-2 my-2'>
         <Card
-         onMouseEnter={() => handleMouseEnter(index)}
-         onMouseLeave={handleMouseLeave}
-         className={`mb-2 p-2 border-0`}
-         onClick={() => handleCardClick(index)}
-
-         style={{ height: '12rem',
-        border:'none',
-        backgroundColor: hoveredIndex === index ? 'rgb(82, 82, 82)' : '#121212',
-                 cursor: 'pointer'}}>
-          <Card.Img src={item.img}   style={{ borderRadius: '2vh', height: '21vh', width: '21vh' }}
-                          variant="top"/>
-                          <h6 style={{ fontSize: '15px', fontWeight: '550', marginTop:'1vh', color:'white' }} >
-                              {item.name} </h6>
-                              {hoveredIndex === index && (
-                                        <div className={Style.play}>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                fill="black"
-                                                className="bi bi-play-fill"
-                                                viewBox="0 0 16 16"
-                                            >
-                                                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
-                                            </svg>
-                                        </div>
-                                    )}
+          className={`mb-2 p-2 border-0`}
+          style={{
+            height: '12rem',
+            border: 'none',
+            backgroundColor: '#121212',
+            cursor: 'pointer'
+          }}
+        >
+          {/* Random card content */}
+          <Card.Img src="https://via.placeholder.com/150" style={{ borderRadius: '2vh', height: '21vh', width: '21vh' }} variant="top" />
+          <h6 style={{ fontSize: '15px', fontWeight: '550', marginTop: '1vh', color: 'white' }} >
+            Random Card {index + 1}
+          </h6>
         </Card>
       </Col>
-  </div>
-    ))
-  ) : (
-   
-            <Col xs={12} sm={8}>
-              <div style={{marginLeft:'25vh',marginTop:'25vh'}}>
-              <h5 style={{ fontWeight: '700', fontSize: '22px', color: 'white', width:'100vh' , alignItems:'center', justifyContent:'center', display:'flex' }}>
-              No Results found
-              </h5>
-              <h5 style={{ fontWeight: '500', fontSize: '15px', color: 'white', width:'100vh', alignItems:'center', justifyContent:'center', display:'flex' }} >
-              Please make sure your words are spelled correctly, or use fewer or different keywords.
-        
-              </h5>
+    ))}
+
+    {/* Render search results */}
+    {filteredItems && filteredItems.length > 0 ? (
+      filteredItems.map((item, index) => (
+        <Col key={index} className='mx-2 my-2'>
+          <Card
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+            className={`mb-2 p-2 border-0`}
+            onClick={() => handleCardClick(index)}
+            style={{
+              height: '12rem',
+              border: 'none',
+              backgroundColor: hoveredIndex === index ? 'rgb(82, 82, 82)' : '#121212',
+              cursor: 'pointer'
+            }}>
+            <Card.Img src={item.img} style={{ borderRadius: '2vh', height: '21vh', width: '21vh' }} variant="top" />
+            <h6 style={{ fontSize: '15px', fontWeight: '550', marginTop: '1vh', color: 'white' }} >
+              {item.name}
+            </h6>
+            {hoveredIndex === index && (
+              <div className={Style.play}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="black"
+                  className="bi bi-play-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+                </svg>
               </div>
-            </Col>
-  )}
-</Row>
-<HomeFooter />
+            )}
+          </Card>
+        </Col>
+      ))
+    ) : (
+      <Col xs={12} sm={8}>
+        <div style={{ marginLeft: '25vh', marginTop: '25vh' }}>
+          <h5 style={{ fontWeight: '700', fontSize: '22px', color: 'white', width: '100vh', alignItems: 'center', justifyContent: 'center', display: 'flex' }}>
+            No Results found
+          </h5>
+          <h5 style={{ fontWeight: '500', fontSize: '15px', color: 'white', width: '100vh', alignItems: 'center', justifyContent: 'center', display: 'flex' }} >
+            Please make sure your words are spelled correctly, or use fewer or different keywords.
+          </h5>
         </div>
+      </Col>
+    )}
+  </Row>
+  <HomeFooter />
+</div>
+
       </Card>
     </div>
   );

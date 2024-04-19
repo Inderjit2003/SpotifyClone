@@ -1,38 +1,30 @@
-import React, {useState} from 'react'
-import Container from 'react-bootstrap/Container';
+import React ,{useState} from 'react'
+import { Button, Card, Col, Container, Row, Table } from 'react-bootstrap'
+import Style from '../CSS/Home.module.css'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Button, Col, Row } from 'react-bootstrap';
 import img1 from '../assets/1.png';
-import { Dropdown } from 'react-bootstrap';
 import style from '../CSS/Homefooter.module.css'
-import Style from '../CSS/Home.module.css'
+import HomeFooter from './HomeFooter';
+import libtable from '../CSS/LibTable.module.css'
+export default function LibComp({handleBellIconClick, handleInstallClick}) {
 
-export default function PlylistNavbar({handleBellIconClick ,handleInstallClick, handleprofileClick}) {
-    // State to manage dropdown visibility
-  //   const [showDropdown, setShowDropdown] = useState(false);
-  //    // Function to handle button click
-  // const handleButtonClick = () => {
-  //   console.log('Button clicked'); // Check if the button click is detected
-  //   setShowDropdown(!showDropdown); // Toggle dropdown visibility
-  // };
-
-  // const handleMenuItemClick = () => {
-  //   // Handle menu item click actions here
-  //   setShowDropdown(false); // Close the dropdown after clicking a menu item
-  // };
-  
+    
   const [showDropdown, setShowDropdown] = useState(false);
 
   const handleButtonClick = () => {
     setShowDropdown(!showDropdown);
   };
 
+  
   const handleMenuItemClick = () => {
     setShowDropdown(false);
     // Handle menu item click actions here
   };
+
   return (
+    <div className='mx-1 py-2'>
+    <Card  style={{backgroundColor:'#121212',border:'none'}}>
     <div className='mx-1 '>    
     <Navbar  sticky='top' expand="lg" >
       <Container className='mt-1'>
@@ -51,15 +43,15 @@ export default function PlylistNavbar({handleBellIconClick ,handleInstallClick, 
          <Nav className="me-auto">
          </Nav>
          <Nav>
-           <div className='m-4'>
+           <div className='mt-4 mx-4 mb-2'>
         <Button variant="light" className={`mx-1 btn-sm px-3 ${style.button}`} style={{borderRadius:'25px'}}  >
-          <a  className={style.navA} style={{color:'black'}} >
+          <a href='https://open.spotify.com/premium' className={style.navA} style={{color:'black'}} >
           Explore Premium
           </a>
         
         </Button>
-        <Button onClick={handleInstallClick} className={`mx-1 btn-sm px-3 ${style.button}`}  style={{borderRadius:'25px', backgroundColor:'black', borderColor:'black'}}>
-          <a  className={style.navA} style={{color:'white'}}>
+        <Button  className={`mx-1 btn-sm px-3 ${style.button}`}  style={{borderRadius:'25px', backgroundColor:'black', borderColor:'black'}}>
+          <a onClick={handleInstallClick} className={style.navA} style={{color:'white'}}>
             <span>
                 <svg data-encore-id="icon" role="img"
                 style={{paddingBottom:'1px'}}
@@ -78,12 +70,10 @@ export default function PlylistNavbar({handleBellIconClick ,handleInstallClick, 
         onClick={handleBellIconClick}
         variant="dark" style={{borderRadius:"100px", backgroundColor:'black', borderColor:'black'}} className='mx-2 btn-sm'>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
-              <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
-         </svg>
+  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
+</svg>
         </Button>
- {/* Button to toggle dropdown */}
-           
-            <Button
+        <Button
             variant="dark"
             style={{ borderRadius: '100px', paddingBottom: '6px', backgroundColor: 'black', borderColor: 'black' }}
             className="mx-1 btn-sm p-1"
@@ -94,7 +84,7 @@ export default function PlylistNavbar({handleBellIconClick ,handleInstallClick, 
           {/* Dropdown menu */}
           {showDropdown && (
             <div className="dropdown-menu show" style={{ position: 'absolute', right: '0', zIndex: '1', backgroundColor:'' }}>
-              <Button  className={`dropdown-item ${style.dropdownItem}`} onClick={handleprofileClick}>
+              <Button  className={`dropdown-item ${style.dropdownItem}`} onClick={handleMenuItemClick}>
               
               
                 Profile
@@ -111,22 +101,37 @@ export default function PlylistNavbar({handleBellIconClick ,handleInstallClick, 
               </Button>
             </div>
           )}
-          </div>
+
+        </div>
          </Nav>
        </Navbar.Collapse>
       
       </Container>
      
 </Navbar>
- 
-<Row className='mx-2 mb-2'>
-          <Col>
-          <Button variant="light"  className='mx-1 btn-sm' style={{borderRadius:'25px'}}>All</Button>
-          <Button variant="dark" className='mx-1 btn-sm' style={{borderRadius:'25px'}}>Music</Button>
-          <Button variant="dark" className='mx-1 btn-sm' style={{borderRadius:'25px'}}>Podcasts</Button>
-          </Col>
-        </Row>
 </div>
+ 
+
+
+    <div className={Style.scrollInstallApp}
+     style={{ }}>
+        
+           <Row 
+           style={{backgroundImage: 'linear-gradient(to right , #121212 0%, rgb(118, 118, 255) 100%)',
+                    height:'40vh'}} >
+            <Col className='mx-5 my-3' xs={2}>
+            <img src='https://misc.scdn.co/liked-songs/liked-songs-64.png' style={{height:'35vh', borderRadius:'4px'}}/>
+            </Col>
+            <Col style={{color:'white', marginLeft:'3vh'}}>
+            <h6 style={{marginTop:'15vh'}}>Playlist</h6>
+            <h1 style={{fontSize:'12vh', fontWeight:'700'}}> Liked Songs</h1>
+            </Col>
+           </Row>+
+           <HomeFooter />
+           </div>
+</Card>
+</div>
+
 
   )
 }

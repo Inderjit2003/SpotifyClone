@@ -8,7 +8,7 @@ import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import Style from '../CSS/LoginHome.module.css'
 
 
-export default function SearchNav({val , se}) {
+export default function Searchcomp({val , se}) {
   return (
 
  <div style={{ position: 'relative', backgroundColor: '#333',width:'50vh', height:'7vh', border:'white', borderRadius: '50px', padding: '10px' }}>

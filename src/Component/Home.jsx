@@ -205,6 +205,7 @@ const playlist=[{
   const [srchhm,setsrchhm]=useState(true)
 
   const handelclick=()=>{
+  
     setsrchhm(false)
   }
 
@@ -225,7 +226,9 @@ const playlist=[{
                   <Sidebar handelclick={handelclick} />
             </div>
             <div className={`me-1 ${Style.pane}`}>
-                {srchhm?<Plylist artist={artist} album={album} radio={radio} playlist={playlist}/>:<SearchHome items={items}/>}
+                {srchhm?<Plylist artist={artist} album={album} radio={radio} playlist={playlist}/>
+                :
+                <SearchHome items={items}/>}
             </div>
           </SplitPane>
           </Container>

@@ -1,12 +1,80 @@
-import React from 'react'
-import { Card,CardTitle ,DropdownButton,ButtonGroup,Dropdown,Row,Col ,Stack, Button} from 'react-bootstrap'
+import React,{useState} from 'react'
+import { Card,CardTitle ,DropdownButton,ButtonGroup,Dropdown,Row,Col ,Stack, Button, Container} from 'react-bootstrap'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Style from '../CSS/Home.module.css'
 
-export default function MidSidebar() {
- 
+import style from '../CSS/Library.module.css'
+
+export default function MidSidebar({handlelibclick}) {
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredItems, setFilteredItems] = useState([]);
+
+  const handleSearch = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    // Filter library items based on the search query
+    const filtered = lib.filter((item) =>
+      item.name.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredItems(filtered);
+  };
+  
+  // const [showAll, setShowAll] = useState(false);
+
+  // const handleFirstButtonClick = () => {
+  //   setShowAll((prevShowAll) => !prevShowAll);
+  // };
+  
+
+    const [searchOpen, setSearchOpen] = useState(false);
+
+    const toggleSearch = () => {
+      setSearchOpen(!searchOpen);
+    };
+  
+
+    //------------------------hovered effect on card--------------------------
+    const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const handleMouseEnter = (index) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+  };
+
+
+
+  // ---------------------------------------playlist change on lib card click-------------------------
+
+const handleplaylistClick = (playlist) => {
+  handlelibclick(playlist); // Pass the playlist data to the parent component
+};
+
+
+    const lib=[{
+      imag:'https://misc.scdn.co/liked-songs/liked-songs-64.png',
+      name:'Liked Songs',
+      title:'Playlist',
+      color:' linear-gradient(to right , #121212 0%, rgb(118, 118, 255) 100%)'
+    },
+    {
+      imag:'https://misc.scdn.co/your-episodes/SE-64.png',
+      name:'Your Episodes',
+      title:'Episodes',
+      color:'linear-gradient(to right , #121212 0%, rgb(0, 100, 80) 100%)'
+    },
+   
+  ]
+
+
+
   return (
-    <div>
+
+    // --------------------library icon-------------------
+    <div style={{height:'77vh'}}>
       <Row>
         <Col xs={8}  className={`my-3 mx-4` }>
            <a href="/home" className={`text-decoration-none text-white ${Style.icon}`}> 
@@ -35,12 +103,223 @@ export default function MidSidebar() {
            </Button>
          </Col>
      </Row>
-   <Row className='m-1'> 
-       <Col>
-       <Button variant="dark" size='sm' className='mx-1' style={{borderRadius:'25px',fontWeight:'500'}}>Playlists</Button>
-       {/* <Button variant="dark" size='sm' className='mx-1' style={{borderRadius:'25px',fontWeight:'500'}}>Albums</Button> */}
-       </Col>
-   </Row>
+
+
+        {/* ----------------------button on library-------------------- */}
+       <Row className="m-1">
+      <Col>
+        {/* <Button
+          variant="dark"
+          size="sm"
+          className=" px-3"
+          style={{ borderRadius: '25px', fontWeight: '500' }}
+          onClick={handleFirstButtonClick}
+        >
+          All
+        </Button>
+        {showAll && ( */}
+          <>
+            <Button
+              variant="dark"
+              size="sm"
+              className="mx-1"
+              style={{ borderRadius: '25px', fontWeight: '500' }}
+            >
+              Playlists
+            </Button>
+            <Button
+              variant="dark"
+              size="sm"
+              className="mx-1"
+              style={{ borderRadius: '25px', fontWeight: '500' }}
+            >
+              Albums
+            </Button>
+            </>
+        {/* )} */}
+        
+      </Col>
+     
+     </Row>
+
+     {/* --------------for search------------- */}
+     <Row className='mx-2 my-1'>
+     <div style={{ display: 'flex', alignItems: 'center', marginTop: '3px' }}>
+      <div
+        style={{
+          paddingLeft:'1vh',
+          backgroundColor: searchOpen ? '#333' : 'transparent',
+          width: '30vh',
+          height: '5vh',
+          border: 'white',
+          borderRadius: '5px',
+          display: 'flex',
+          alignItems: 'center',
+        }}
+        onClick={toggleSearch}
+      >
+        <span style={{ color: '#b3b3b3', marginRight: '10px' }}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white"
+          style={{ marginLeft: '1vh' }} className="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+          </svg>
+        </span>
+        <input 
+          type="text" 
+          value={searchQuery} 
+          onChange={handleSearch} 
+          className='m-0 p-0' 
+          style={{ 
+            backgroundColor: 'transparent', 
+            borderColor: 'transparent', 
+            color: 'white', 
+            width: searchOpen ? '25vh' : '0',
+            paddingLeft: '0', 
+            paddingRight: '10px', // Margin to the right of the search icon
+            outline: 'none',
+            fontSize: '14px',
+            fontWeight: '500',
+            transition: 'width 0.4s ease'
+          }} 
+          placeholder="Search in your Library"
+          onClick={(e) => e.stopPropagation()}
+        />
+      </div>
+    </div>
+
+
+</Row>
+
+
+
+     
+     {/* ---------------------------your library playlist-------------------------- */}
+     <Container className={style.scrolllib}>
+  {searchQuery === '' ? (
+    // If search query is empty, show all library items
+    lib.map((value, index) => (
+      <Row key={index} onClick={() => handlelibclick(value)}>
+        <Card
+          className={`${style.libcards}`}
+          style={{
+            cursor: 'pointer',
+            marginLeft: '1vh',
+            border: 'none',
+            width: '41vh',
+            backgroundColor: hoveredIndex === index ? '#333' : '#121212',
+            transition: 'background-color 0.3s', // Add transition for smooth effect
+          }}
+          onMouseEnter={() => handleMouseEnter(index)}
+          onMouseLeave={handleMouseLeave}
+        >
+          <Row className='mt-1'>
+            <Col xs={2}>
+              <Card.Img src={value.imag} style={{ width: '7vh', height: '7vh', borderRadius: '4px' }} variant="top" />
+            </Col>
+            <Col>
+              <Row>
+                <h6 className='mt-2 mx-2' style={{ color: 'white' }}>{value.name}</h6>
+              </Row>
+              <Row>
+                <h6 className=' mx-2' style={{ color: 'rgba(104, 104, 104, 0.693)', fontWeight: '600', fontSize: '11px' }}>{value.title}</h6>
+              </Row>
+            </Col>
+          </Row>
+        </Card>
+      </Row>
+    ))
+  ) : (
+    // If search query is not empty, filter library items and show filtered ones
+    filteredItems.length > 0 ? (
+      filteredItems.map((value, index) => (
+        <Row key={index} onClick={() => handlelibclick(value)}>
+          <Card
+            className={`${style.libcards}`}
+            style={{
+              cursor: 'pointer',
+              marginLeft: '1vh',
+              border: 'none',
+              width: '41vh',
+              backgroundColor: hoveredIndex === index ? '#333' : '#121212',
+              transition: 'background-color 0.3s', // Add transition for smooth effect
+            }}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+          >
+            <Row className='mt-1'>
+              <Col xs={2}>
+                <Card.Img src={value.imag} style={{ width: '7vh', height: '7vh', borderRadius: '4px' }} variant="top" />
+              </Col>
+              <Col>
+                <Row>
+                  <h6 className='mt-2 mx-2' style={{ color: 'white' }}>{value.name}</h6>
+                </Row>
+                <Row>
+                  <h6 className=' mx-2' style={{ color: 'rgba(104, 104, 104, 0.693)', fontWeight: '600', fontSize: '11px' }}>{value.title}</h6>
+                </Row>
+              </Col>
+            </Row>
+          </Card>
+        </Row>
+      ))
+    ) : (
+      // If no matching item found, display "Not Found"
+      <h2>Not Found</h2>
+    )
+  )}
+</Container>
+
+  
+  
+     {/* <Row className="m-1">
+      <Col>
+        <Button
+          variant="dark"
+          size="sm"
+          className=" px-3"
+          style={{ borderRadius: '25px', fontWeight: '500' }}
+          onClick={handleFirstButtonClick}
+        >
+          All
+        </Button>
+        {showAll && (
+          <>
+            <Button
+              variant="dark"
+              size="sm"
+              className="mx-1"
+              style={{ borderRadius: '25px', fontWeight: '500' }}
+            >
+              Artists
+            </Button>
+            <Button
+              variant="dark"
+              size="sm"
+              className="mx-1"
+              style={{ borderRadius: '25px', fontWeight: '500' }}
+            >
+              Albums
+            </Button>
+            <Button
+              variant="dark"
+              size="sm"
+              className="mx-1"
+              style={{ borderRadius: '25px', fontWeight: '500' }}
+            >
+              Radio
+            </Button>
+            <Button
+              variant="dark"
+              size="sm"
+              className="mx-1"
+              style={{ borderRadius: '25px', fontWeight: '500' }}
+            >
+              Playlists
+            </Button>
+          </>
+        )}
+      </Col>
+    </Row> */}
 
   {/* <Row>
       <Col xs={6}> 
@@ -55,11 +334,6 @@ export default function MidSidebar() {
      
   </Row> */}
             
-                <div >
-                <div className={`  ${Style.yourlibrary}`}>
-                     
-                </div>
-                </div>
     </div>
   )
 }

@@ -34,6 +34,8 @@ export default function App() {
         <Route path='/cards' elements={<AllCards />} />
 
         <Route path='/search' element={<Search />} />
+        {/* <Route path='/serachhome' element={<SearchHome />}/> */}
+
         <Route path='/searchhome' element={<Home />}  />
         {/* <Route path='/InstallApp' element={<InstallApp />} /> */}
 
