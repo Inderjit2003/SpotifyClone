@@ -5,6 +5,11 @@ import Plylist from './Plylist';
 import { Container } from 'react-bootstrap';
 import Style from '../CSS/Home.module.css';
 import Bottom from './Bottom';
+
+import BellIcon from './BellIcon';
+import InstallApp from './InstallApp';
+// import LibComp from './LibComp';
+import Profile from './Profile'
 import SearchHere from './SearchHere';
 import a1 from '../assets/audio/Bir Zindagi.mp3';
 import a2 from '../assets/audio/Apa Fer Milange.mp3';
@@ -50,6 +55,27 @@ export default function Search() {
       color:'#537556'
     },
   ];
+  
+  const [install, setInstall] = useState('');
+  
+  const handleInstallClick = () => {
+    setInstall('install');
+  };
+
+  const handleBellIconClick = () => {
+    setInstall('bellIcon');
+  };
+  const handleprofileClick = () => {
+    setInstall('profile');
+  };
+  
+  const [playlist, setPlaylist] = useState(''); // State to manage playlist data
+
+  const handlelibclick = (playlist) => {
+    console.log(playlist)
+    setPlaylist(playlist);
+
+  };
 
   return (
     <>
@@ -57,21 +83,26 @@ export default function Search() {
         <Container className={`${Style.container}`}>
           <SplitPane
             split='vertical'
-            minSize={305}
+            minSize={280}
             maxSize={-1100}
-            defaultSize={400}
+            defaultSize={340}
             style={{ backgroundColor: 'black' }}
           >
             <div className={` me-1 ${Style.pane}`}>
-              <Sidebar />
+              <Sidebar handlelibclick={handlelibclick} />
             </div>
 
             
             <div className={`me-1 ${Style.pane}`}>
-             <SearchHere items ={songs} />
+            {install === 'install' && <InstallApp handleprofileClick={handleprofileClick} handleBellIconClick={handleBellIconClick} />}
+              {install === 'bellIcon' && <BellIcon handleprofileClick={handleprofileClick} handleInstallClick={handleInstallClick} />}
+              {install === 'profile' && <Profile handleInstallClick={handleInstallClick} handleBellIconClick={handleBellIconClick} />}
+              
+             {install === '' && (<SearchHere items ={songs} handleprofileClick={handleprofileClick} handleInstallClick={handleInstallClick} handleBellIconClick={handleBellIconClick} />)}
             </div>
           </SplitPane>
         </Container>
+<Bottom />
 
       </div>
     </>

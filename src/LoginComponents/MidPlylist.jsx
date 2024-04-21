@@ -4,7 +4,7 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 import HomeFooter from './HomeFooter';
 import Plc from '../SharedComponents/Plc';
 
-export default function MidPlylist({ items }) {
+export default function MidPlylist({ items  }) {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [selectedCardIndex, setSelectedCardIndex] = useState(null);
 

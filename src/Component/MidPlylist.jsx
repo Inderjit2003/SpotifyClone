@@ -49,7 +49,8 @@ export default function MidPlylist({ artist , album , radio , playlist}) {
     const[playlistsec, setplaylistsec] = useState(true);
 
     const handleShowAllClick = (e, type) => {
-    e.preventDefault(); // Prevent the default behavior of the link
+        e.preventDefault();
+        console.log('button clicked')
     if (type === 'artist') {
         setShowAllData(artist);
     } else if (type === 'album') {
@@ -130,7 +131,7 @@ export default function MidPlylist({ artist , album , radio , playlist}) {
                     </Col>
                     <Col xs={12} sm={4} className={`${style.list} text-end`}>
                         <a href="/" className="text-decoration-none text-white">
-                        <p className={`${style.Showall}`} onClick={(e) => handleShowAllClick(e,'artist')}>
+                        <p className={`${style.Showall}`} onClick={(e) => handleShowAllClick(e, 'artist')}>
                                         Show all
                                     </p>
                         </a>
@@ -201,8 +202,8 @@ export default function MidPlylist({ artist , album , radio , playlist}) {
                 </a>
             </Col>
             <Col xs={12} sm={4} className={`${style.list} text-end`}>
-                <a href="/" className="text-decoration-none text-white" >
-                <p className={`${style.Showall}`} onClick={(e) => handleShowAllClick(e,'album')}>
+                <a href="/showcards" className="text-decoration-none text-white" >
+                <p className={`${style.Showall}`} onClick={() => handleShowAllClick('album')}>
                                         Show all
                 </p>
                 </a>
@@ -262,8 +263,8 @@ export default function MidPlylist({ artist , album , radio , playlist}) {
                 </a>
             </Col>
             <Col xs={12} sm={4} className={`${style.list} text-end`}>
-                <a href="/" className="text-decoration-none text-white" >
-                <p className={`${style.Showall}`} onClick={(e) => handleShowAllClick(e,'radio')}>
+                <a href="/showcards" className="text-decoration-none text-white" >
+                <p className={`${style.Showall}`} onClick={() => handleShowAllClick('radio')}>
                                         Show all
                 </p>
                 </a>
@@ -325,8 +326,8 @@ export default function MidPlylist({ artist , album , radio , playlist}) {
                 </a>
             </Col>
             <Col xs={12} sm={4} className={`${style.list} text-end`}>
-                <a href="/" className="text-decoration-none text-white" >
-                <p className={`${style.Showall}`} onClick={(e) => handleShowAllClick(e,'playlist')}>
+                <a href="/showcards" className="text-decoration-none text-white" >
+                <p className={`${style.Showall}`} onClick={() => handleShowAllClick('playlist')}>
                                         Show all
                 </p>
                 </a>

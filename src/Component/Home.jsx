@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'; // Import Link from React Router
+import { useLocation } from 'react-router-dom';
 import SplitPane from 'react-split-pane'
 import Sidebar from './Sidebar'
 import Plylist from './Plylist'
@@ -8,7 +10,8 @@ import Bottom from './Bottom'
 import SearchHome from './SearchHome'
 
 export default function Home() {
-    
+  
+
 // artists items
 const artist=[
   {
@@ -209,6 +212,23 @@ const playlist=[{
     setsrchhm(false)
   }
 
+  
+  const location = useLocation();
+
+  // Function to determine which component to render based on the current location
+  const renderMainComponent = () => {
+    switch (location.pathname) {
+      case '/':
+        return <Plylist artist={artist} album={album} radio={radio} playlist={playlist}/>;
+      case '/search-home':
+        return <SearchHome  items={items}/>;
+      default:
+        return null; // Handle other routes if needed
+    }
+  };
+
+
+
    // Combine all items into an object and pass it as the 'items' prop
    const items = { artist, album, radio, playlist };
 
@@ -223,12 +243,14 @@ const playlist=[{
              style={{backgroundColor:'black'}}
              >
             <div  className={` me-1 ${Style.pane}`} >
-                  <Sidebar handelclick={handelclick} />
+                  <Sidebar handelclick={handelclick}/>
             </div>
             <div className={`me-1 ${Style.pane}`}>
-                {srchhm?<Plylist artist={artist} album={album} radio={radio} playlist={playlist}/>
-                :
-                <SearchHome items={items}/>}
+                {/* {srchhm? (<Plylist artist={artist} album={album} radio={radio} playlist={playlist}/>
+                ):(
+                <SearchHome items={items}/>)} */}
+                 {renderMainComponent()}
+
             </div>
           </SplitPane>
           </Container>

@@ -15,7 +15,7 @@ export default function Sidebar({handlelibclick}) {
             </Card>
           </div>
           <div className='mid'>
-            <Card style={{backgroundColor:'#121212' , border:'none', maxHeight:'500px'}} className=' ms-2'>
+            <Card style={{backgroundColor:'#121212' , border:'none', maxHeight:'69vh'}} className=' ms-2'>
                   <MidSidebar handlelibclick={handlelibclick} />
                   
             </Card>

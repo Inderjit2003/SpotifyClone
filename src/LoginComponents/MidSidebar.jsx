@@ -74,8 +74,8 @@ const handleplaylistClick = (playlist) => {
   return (
 
     // --------------------library icon-------------------
-    <div style={{height:'77vh'}}>
-      <Row>
+    <div style={{height:'78vh'}}>
+      <Row className='pt-1'>
         <Col xs={8}  className={`my-3 mx-4` }>
            <a href="/home" className={`text-decoration-none text-white ${Style.icon}`}> 
              <svg  data-encore-id="icon" className={Style.icon} width="26" height="26" fill='white'
@@ -156,6 +156,7 @@ const handleplaylistClick = (playlist) => {
           display: 'flex',
           alignItems: 'center',
         }}
+        className='my-1'
         onClick={toggleSearch}
       >
         <span style={{ color: '#b3b3b3', marginRight: '10px' }}>

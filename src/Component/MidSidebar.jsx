@@ -27,6 +27,22 @@ export default function MidSidebar() {
               </div>
               </Toast.Body>
      </Toast> );
+
+
+const popply = () => (
+  <Toast delay={3000} className={` ${Style.poptoast} `} style={{background:'#232323',color:'white',width:'15rem',marginTop:'25vh',marginLeft:'55vh'}}  autohide>     
+  <Toast.Body color='white'>
+  <svg className='m-1' data-encore-id="icon" width="14" height="14" fill='white' role="img" aria-hidden="true" viewBox="0 0 16 16" ><path d="M2 0v2H0v1.5h2v2h1.5v-2h2V2h-2V0H2zm11.5 2.5H8.244A5.482 5.482 0 0 0 7.966 1H15v11.75A2.75 2.75 0 1 1 12.25 10h1.25V2.5zm0 9h-1.25a1.25 1.25 0 1 0 1.25 1.25V11.5zM4 8.107a5.465 5.465 0 0 0 1.5-.593v5.236A2.75 2.75 0 1 1 2.75 10H4V8.107zM4 11.5H2.75A1.25 1.25 0 1 0 4 12.75V11.5z"></path></svg>
+    <span className='ms-1 fs-6 fw-semi-bold'>Create a New Playlist</span>
+    <p style={{fontSize:'13px', margin:'2px'}}>Login to create Playlist</p>
+    <div class="d-flex justify-content-end mt-3">
+            <a href='/'className={`text-decoration-none text-white fw-semibold mx-3 mt-2 ${Style.hoverd}`} >Not Now</a>
+            <Button href='/login' variant='light' className={` rounded-pill btn-sm p-2 px-4 py-2 fw-bold ${Style.button}`}>Login</Button>
+            </div>
+    </Toast.Body>
+</Toast> );
+
+
   return (
     <div>
           <Row>
@@ -42,8 +58,10 @@ export default function MidSidebar() {
                        </a>
                   </Col>
                   <Col xs={2} className={`mt-3 ${Style.list}`} >
-                                <svg  data-encore-id="icon"className={Style.icon} width="16" height="20" fill='white'  role="img" aria-hidden="true" viewBox="0 0 16 16" >
-                                <path d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z"></path></svg>
+                  <OverlayTrigger trigger="click" placement='right' overlay={popply} >                                
+                    <svg  data-encore-id="icon"className={Style.icon} width="16" height="20" fill='white'  role="img" aria-hidden="true" viewBox="0 0 16 16" >
+                                <path d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z"></path></svg></OverlayTrigger>
+                                
                             </Col>
                 </Row>
             

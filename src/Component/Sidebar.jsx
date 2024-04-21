@@ -11,7 +11,7 @@ export default function Sidebar({handelclick}) {
         <Stack gap={2}>
           <div className='Up'>
             <Card style={{backgroundColor:'#121212' , border:'none'}} className='ms-2 mt-2'>
-            <UpSidebar handelclick={handelclick} />
+            <UpSidebar handelclick={handelclick}  />
             </Card>
           </div>
           <div className='mid'>

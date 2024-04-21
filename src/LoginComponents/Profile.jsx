@@ -1,137 +1,213 @@
-import React ,{useState} from 'react'
-import { Button, Card, Col, Container, Row, Table } from 'react-bootstrap'
-import Style from '../CSS/Home.module.css'
+import React, { useState } from 'react';
+import { Button, Card, Col, Container, Row, Modal } from 'react-bootstrap';
+import Style from '../CSS/Home.module.css';
+import style from '../CSS/Homefooter.module.css';
+import HomeFooter from './HomeFooter';
+import PlylistNavbar from './PlylistNavbar';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import img1 from '../assets/1.png';
-import style from '../CSS/Homefooter.module.css'
-import HomeFooter from './HomeFooter';
-import libtable from '../CSS/LibTable.module.css'
-export default function LibComp({handleBellIconClick, handleInstallClick}) {
 
-    
+const ProfilePage = () => {
+  const defaultProfileImage = 'https://www.citypng.com/public/uploads/preview/spotify-white-logo-symbol-icon-hd-png-11661570403q5drcznuwu.png';
+
+  const [newProfileImage, setNewProfileImage] = useState(defaultProfileImage);
+  const [originalProfileImage, setOriginalProfileImage] = useState(defaultProfileImage);
+  const [profileName, setProfileName] = useState('Simranjeet');
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [newProfileName, setNewProfileName] = useState('');
+
+  const handleProfileNameChange = () => {
+    setProfileName(newProfileName);
+    setShowEditModal(false);
+  };
+
+  const handleSaveChanges = () => {
+    setOriginalProfileImage(newProfileImage); // Update the original profile image
+    setShowEditModal(false);
+  };
+
+  const handleModalClose = () => {
+    setNewProfileImage(originalProfileImage); // Reset profile image to the original one
+    setShowEditModal(false);
+  };
+
+
+  return (
+    <div>
+      <Row
+        style={{
+          backgroundImage: 'linear-gradient(135deg , #121212 0%, rgb(69, 67, 67) )',
+          height: '40vh',
+        }}
+      >
+<Col className='mx-5 my-3' xs={3}>
+  <div 
+    className={style.profileimage}
+    onClick={() => document.getElementById('fileInput').click()}
+  >
+    <img 
+      src={newProfileImage} 
+      alt="Profile" 
+      style={{ borderRadius: '30vh', height: '35vh' }} 
+    />
+    <div className={style.changeprofile}>
+    <svg
+     style={{marginLeft:'5vh'}}
+    width="50" height="50" fill="currentColor"
+    viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m497.9 142.1-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zm-213.7-42.3-262.6 262.6-21.2 121.5c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zm-160.1 240.1c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zm-36.1 84.1h48v36.3l-64.5 11.3-31.1-31.1 11.3-64.5h36.3z"/></svg>
+      <h5 >Choose photo</h5>
+    </div>
+  </div>
+  <input
+    id="fileInput"
+    type="file"
+    accept="image/*"
+    style={{ display: 'none' }}
+    onChange={(e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setNewProfileImage(reader.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    }}
+  />
+</Col>
+
+
+
+
+        <Col style={{ color: 'white', marginLeft: '-6vh' }}>
+          <h6 style={{ marginTop: '15vh' }}>Profile</h6>
+          <h1 onClick={() => setShowEditModal(true)} style={{ fontSize: '12vh', fontWeight: '700' }}>{profileName}</h1>
+         
+        </Col>
+      </Row>
+      <Modal style={{ marginTop: '20vh', marginLeft: '10vh' }} show={showEditModal} onHide={handleModalClose}>
+        <div style={{ backgroundColor: 'rgb(44, 42, 42)', borderRadius: '1vh', width: '75vh' }}>
+          <Modal.Header closeButton>
+            <Modal.Title style={{ color: 'white', fontWeight:'700' }}>Profile details</Modal.Title>
+          </Modal.Header>
+          <Modal.Body style={{ color: 'white', height: '37vh' }}>
+            <Row>
+              <Col xs={6}>
+              <div 
+                  className={style.profileimg}
+                >
+                    <img
+                  src={newProfileImage}
+                  alt="Profile Image"
+                  style={{ borderRadius: '30vh', width: '25vh', height: '25vh', marginLeft: '1rem', cursor: 'pointer' }}
+                  onClick={() => document.getElementById('fileInput').click()}
+                />
+        
+                  <div className={style.changeimg}>
+                  <svg
+                   style={{marginLeft:'5vh'}}
+                  width="30" height="30" fill="currentColor"
+                  viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m497.9 142.1-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zm-213.7-42.3-262.6 262.6-21.2 121.5c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zm-160.1 240.1c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zm-36.1 84.1h48v36.3l-64.5 11.3-31.1-31.1 11.3-64.5h36.3z"/></svg>
+                    <h6 >Choose photo</h6>
+                  </div>
+                </div>
+                <input
+                  id="fileInput"
+                  type="file"
+                  accept="image/*"
+                  style={{ display: 'none' }}
+                  onChange={(e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                      const reader = new FileReader();
+                      reader.onloadend = () => {
+                        setNewProfileImage(reader.result);
+                      };
+                      reader.readAsDataURL(file);
+                    }
+                  }}
+                />
+              </Col>
+
+
+              <Col xs={6} style={{ marginLeft: '-6vh', marginTop: '8vh', cursor:'pointer' }}>
+                <Row>
+                  <input
+                    style={{
+                      cursor:'pointer' ,
+                      borderRadius:'1vh',
+                      backgroundColor: 'rgb(76, 75, 75)',
+                      color: 'white',
+                      border: 'none',
+                      borderBottom: '1px solid rgb(76, 75, 75)',
+                      outline: 'none',
+                      fontSize: '16px',
+                      padding: '8px 0',
+                      width: '100%',
+                      margin: '10px 0',
+                    }}
+                    type="text"
+                    placeholder="Enter new profile name"
+                    value={newProfileName}
+                    onChange={(e) => setNewProfileName(e.target.value)}
+                  />
+                </Row>
+                <Row>
+                  <Button
+                    style={{
+                      marginLeft: '22vh',
+                      marginTop: '2vh',
+                      height: '6vh',
+                      borderRadius: '5vh',
+                      width: '14vh',
+                    }}
+                    variant="light"
+                    onClick={handleProfileNameChange}
+                    className={style.save}
+                  >
+                    Save
+                  </Button>
+                </Row>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <p style={{ fontSize: '11px', fontWeight: '700', marginTop: '-8vh' }}>
+                  By proceeding, you agree to give Spotify access to the image you choose to upload. Please make sure you have the right to upload the image.
+                </p>
+              </Col>
+            </Row>
+          </Modal.Body>
+        </div>
+      </Modal>
+    </div>
+  );
+};
+
+export default function LibComp({ handleBellIconClick, handleInstallClick ,newProfileImage, handleprofileClick }) {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const handleButtonClick = () => {
     setShowDropdown(!showDropdown);
   };
 
-  
   const handleMenuItemClick = () => {
     setShowDropdown(false);
     // Handle menu item click actions here
   };
 
   return (
-    <div className='mx-1 py-2'>
-    <Card  style={{backgroundColor:'#121212',border:'none'}}>
-    <div className='mx-1 '>    
-    <Navbar  sticky='top' expand="lg" >
-      <Container className='mt-1'>
-       <Button variant='dark' className='mx-1' style={{borderRadius:'50%'}} size='sm' disabled> 
-       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-           </svg>
-       </Button>
-       <Button variant='dark'  className='mx-1' style={{borderRadius:'50%'}} size='sm'  disabled> 
-       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-                     </svg>
-       </Button>
-       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-       <Navbar.Collapse id="responsive-navbar-nav">
-         <Nav className="me-auto">
-         </Nav>
-         <Nav>
-           <div className='mt-4 mx-4 mb-2'>
-        <Button variant="light" className={`mx-1 btn-sm px-3 ${style.button}`} style={{borderRadius:'25px'}}  >
-          <a href='https://open.spotify.com/premium' className={style.navA} style={{color:'black'}} >
-          Explore Premium
-          </a>
-        
-        </Button>
-        <Button  className={`mx-1 btn-sm px-3 ${style.button}`}  style={{borderRadius:'25px', backgroundColor:'black', borderColor:'black'}}>
-          <a onClick={handleInstallClick} className={style.navA} style={{color:'white'}}>
-            <span>
-                <svg data-encore-id="icon" role="img"
-                style={{paddingBottom:'1px'}}
-                width="16"
-                height="16" 
-                fill='white'
-                 aria-hidden="true" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 dYnaPI"><path d="M4.995 8.745a.75.75 0 0 1 1.06 0L7.25 9.939V4a.75.75 0 0 1 1.5 0v5.94l1.195-1.195a.75.75 0 1 1 1.06 1.06L8 12.811l-.528-.528a.945.945 0 0 1-.005-.005L4.995 9.805a.75.75 0 0 1 0-1.06z"></path><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"></path></svg></span>
+    <div className={`mx-1 py-2`} >
+      <Card style={{ backgroundColor: '#121212', border: 'none' }}>
+      <PlylistNavbar handleInstallClick={handleInstallClick} handleprofileClick={handleprofileClick} handleBellIconClick={handleBellIconClick} />
 
-            <span className='ms-1'>
-              
-                   Install App
-            </span>
-            </a>
-        </Button>
-        <Button
-        onClick={handleBellIconClick}
-        variant="dark" style={{borderRadius:"100px", backgroundColor:'black', borderColor:'black'}} className='mx-2 btn-sm'>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
-  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
-</svg>
-        </Button>
-        <Button
-            variant="dark"
-            style={{ borderRadius: '100px', paddingBottom: '6px', backgroundColor: 'black', borderColor: 'black' }}
-            className="mx-1 btn-sm p-1"
-            onClick={handleButtonClick}
-          >
-            <img src={img1} height={'24px'} width={'24px'} style={{ borderRadius: '100px' }} alt="Profile" />
-          </Button>
-          {/* Dropdown menu */}
-          {showDropdown && (
-            <div className="dropdown-menu show" style={{ position: 'absolute', right: '0', zIndex: '1', backgroundColor:'' }}>
-              <Button  className={`dropdown-item ${style.dropdownItem}`} onClick={handleMenuItemClick}>
-              
-              
-                Profile
-              </Button>
-              <Button  className={`dropdown-item ${style.dropdownItem}`} onClick={handleMenuItemClick}>
-                Settings
-              </Button>
-              <div className="dropdown-divider"></div>
-              <Button className={`dropdown-item ${style.dropdownItem}`} onClick={handleMenuItemClick}>
-                <a href='/'>
-                Logout
-                </a>
-               
-              </Button>
-            </div>
-          )}
 
+        <div className={`mt-3 ${Style.scrollInstallApp}`}>
+        <ProfilePage newProfileImage={newProfileImage} />
+        {/* Your HomeFooter component */}
+        <HomeFooter />
         </div>
-         </Nav>
-       </Navbar.Collapse>
-      
-      </Container>
-     
-</Navbar>
-</div>
- 
-
-
-    <div className={Style.scrollInstallApp}
-     style={{ }}>
-        
-           <Row 
-           style={{backgroundImage: 'linear-gradient(to right , #121212 0%, rgb(118, 118, 255) 100%)',
-                    height:'40vh'}} >
-            <Col className='mx-5 my-3' xs={2}>
-            <img src='https://misc.scdn.co/liked-songs/liked-songs-64.png' style={{height:'35vh', borderRadius:'4px'}}/>
-            </Col>
-            <Col style={{color:'white', marginLeft:'3vh'}}>
-            <h6 style={{marginTop:'15vh'}}>Playlist</h6>
-            <h1 style={{fontSize:'12vh', fontWeight:'700'}}> Liked Songs</h1>
-            </Col>
-           </Row>+
-           <HomeFooter />
-           </div>
-</Card>
-</div>
-
-
-  )
+      </Card>
+    </div>
+  );
 }

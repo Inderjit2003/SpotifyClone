@@ -30,7 +30,7 @@
 
   
   .install:hover{
-    border-bottom: 1px solid rgb(103, 100, 100); /* Change the color here */
+    border-bottom: 1px solid rgb(76, 75, 75); /* Change the color here */
     color: black ;
     font-weight: 600;
     font-size: 19px;
@@ -43,4 +43,60 @@
     /* margin: 8px 0;
     font-size: 1rem;
     font-weight: 400; */
+}
+
+
+
+.profileimage {
+  position: relative;
+  border-radius: 30vh;
+  height: 35vh;
+  color:white;
+  transition: transform 0.3s;
+}
+
+.profileimage:hover img {
+  filter: brightness(30%);
+}
+.profileimage:hover .changeprofile {
+  opacity: 1;
+}
+
+.changeprofile {
+  position: absolute;
+  top: 18vh ;
+  left: 18vh;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s, transform 0.3s;
+  opacity: 0;
+}
+
+
+.profileimg {
+  position: relative;
+  border-radius: 30vh;
+  height: 35vh;
+  color:white;
+  transition: transform 0.3s;
+}
+
+.profileimg:hover img {
+  filter: brightness(30%);
+}
+.profileimg:hover .changeimg {
+  opacity: 1;
+}
+
+.changeimg {
+  position: absolute;
+  top: 13vh ;
+  left: 15vh;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s, transform 0.3s;
+  opacity: 0;
+}
+
+.save:hover{
+  transform: scale(1.05);
+  font-weight: 500;
 }

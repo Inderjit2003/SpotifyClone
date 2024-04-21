@@ -120,26 +120,7 @@ const SearchHome = ({ items }) => {
   </Row>
 
   <Row xs={1} md={2} lg={6} xl={6} className="g-0">
-    {/* Render random cards */}
-    {Array.from({ length: 3 }, (_, index) => (
-      <Col key={index} className='mx-2 my-2'>
-        <Card
-          className={`mb-2 p-2 border-0`}
-          style={{
-            height: '12rem',
-            border: 'none',
-            backgroundColor: '#121212',
-            cursor: 'pointer'
-          }}
-        >
-          {/* Random card content */}
-          <Card.Img src="https://via.placeholder.com/150" style={{ borderRadius: '2vh', height: '21vh', width: '21vh' }} variant="top" />
-          <h6 style={{ fontSize: '15px', fontWeight: '550', marginTop: '1vh', color: 'white' }} >
-            Random Card {index + 1}
-          </h6>
-        </Card>
-      </Col>
-    ))}
+   
 
     {/* Render search results */}
     {filteredItems && filteredItems.length > 0 ? (

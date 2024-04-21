@@ -56,7 +56,7 @@ export default function Plylist({artist, radio, album, playlist}) {
     
     <div>
     {cmpname === "cmp1" && 
-    <MidPlylist artist={artist} album={album} radio={radio} playlist={playlist} />
+    <MidPlylist artist={artist} album={album} radio={radio} playlist={playlist}  />
     }
       {/* <Showall artist={artists} album={album} radio={radio} playlist={playlist} /> */}
     </div>

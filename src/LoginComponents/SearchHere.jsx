@@ -3,7 +3,10 @@ import style from '../CSS/Home.module.css';
 import SearchNav from '../SharedComponents/SearchNav'
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import Style from '../CSS/LoginHome.module.css'
-const SearchHere = ({ items }) => {
+import HomeFooter from '../Component/HomeFooter';
+
+
+const SearchHere = ({ items,handleInstallClick , handleprofileClick, handleBellIconClick }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredItems, setFilteredItems] = useState(items);
 
@@ -16,11 +19,16 @@ const SearchHere = ({ items }) => {
     setFilteredItems(filtered);
   };
 
+
+ 
+
+
+
   return (
-    <div style={{ backgroundColor: '#121212' }}>
+    <div style={{ backgroundColor: '#121212', borderRadius:'1vh' }} className={` mx-1 mt-2 py-2' ${style.scrolllog}`}>
       {/* Search Bar */}
       <div>
-      <SearchNav val={searchQuery} se={handleSearch} />
+      <SearchNav val={searchQuery} se={handleSearch} handleInstallClick={handleInstallClick} handleprofileClick={handleprofileClick} handleBellIconClick={handleBellIconClick}/>
       </div>
       <Container className={`mt-5 ms-5 `}>
         <h4>Browse All</h4>
@@ -40,9 +48,19 @@ const SearchHere = ({ items }) => {
               </Col>
             ))
           ) : (
-            <h2>Not found</h2>
+            <Col xs={12} sm={8}>
+            <div style={{ marginLeft: '25vh', marginTop: '25vh' }}>
+              <h5 style={{ fontWeight: '700', fontSize: '22px', color: 'white', width: '100vh', alignItems: 'center', justifyContent: 'center', display: 'flex' }}>
+                No Results found
+              </h5>
+              <h5 style={{ fontWeight: '500', fontSize: '15px', color: 'white', width: '100vh', alignItems: 'center', justifyContent: 'center', display: 'flex' }} >
+                Please make sure your words are spelled correctly, or use fewer or different keywords.
+              </h5>
+            </div>
+          </Col>
           )}
         </Row>
+        <HomeFooter />
       </Container>
     </div>
   );

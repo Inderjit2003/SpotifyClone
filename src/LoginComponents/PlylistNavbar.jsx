@@ -51,7 +51,7 @@ export default function PlylistNavbar({handleBellIconClick ,handleInstallClick, 
          <Nav className="me-auto">
          </Nav>
          <Nav>
-           <div className='m-4'>
+           <div className=''>
         <Button variant="light" className={`mx-1 btn-sm px-3 ${style.button}`} style={{borderRadius:'25px'}}  >
           <a  className={style.navA} style={{color:'black'}} >
           Explore Premium
@@ -118,14 +118,14 @@ export default function PlylistNavbar({handleBellIconClick ,handleInstallClick, 
       </Container>
      
 </Navbar>
- 
+{/*  
 <Row className='mx-2 mb-2'>
           <Col>
           <Button variant="light"  className='mx-1 btn-sm' style={{borderRadius:'25px'}}>All</Button>
           <Button variant="dark" className='mx-1 btn-sm' style={{borderRadius:'25px'}}>Music</Button>
           <Button variant="dark" className='mx-1 btn-sm' style={{borderRadius:'25px'}}>Podcasts</Button>
           </Col>
-        </Row>
+        </Row> */}
 </div>
 
   )
